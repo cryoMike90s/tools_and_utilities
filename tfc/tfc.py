@@ -1,6 +1,7 @@
 from pathlib import Path
 import logging
 import subprocess
+import sys
 
 
 class Input_Validator:
@@ -70,7 +71,13 @@ class TFC(Input_Validator):
 
 
 def main():
-    ...
+    if len(sys.argv) > 1:
+        path = sys.argv[1]
+    else:
+        path = "."
+
+    tfc = TFC(path)
+    tfc.perform_tfc()
 
 
 if __name__ == "__main__":
